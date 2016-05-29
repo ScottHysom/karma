@@ -22,6 +22,11 @@ just for immediate execution, without reporting to Karma server.
       info: function(info) {
         if (info.dump && window.console) window.console.log(info.dump);
       },
+      error: function () {
+        if (window.console) {
+          window.console.error.apply(window.console, arguments);
+        }
+      },
       complete: function() {
         if (window.console) window.console.log('Skipped ' + this.skipped + ' tests');
       },
